@@ -1,7 +1,17 @@
-set nocursorline " don't highlight current line
+set cursorline
+set rnu " Relative line numbers
 
-" keyboard shortcuts
-inoremap jj <ESC>
+let g:airline_powerline_fonts = 1
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (change this to your linking)
+set expandtab                   " use spaces, not tabs (remove this if you mostly use tabs)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+set foldlevel=4
+
+" Remove whitespace on write
+autocmd BufWritePre * :%s/\s\+$//e
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
@@ -11,3 +21,20 @@ if (&t_Co == 256 || has('gui_running'))
     colorscheme desert
   endif
 endif
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.png,*.gif,*.jpg,*/images/*,*/vendor/*,*/coverage/*,*/venv/*,*/.bin/*,*/cassettes/*
+
+" find merge conflict markers
+nmap <silent> <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+
+" Filetypes
+au BufNewFile,BufRead *.scss setlocal filetype=scss
+au BufNewFile,BufRead *.scala setlocal filetype=scala
+
+autocmd FileType css,sass setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1

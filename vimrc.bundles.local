@@ -1,0 +1,18 @@
+" Snippet support
+" Bundle "tomtom/tlib_vim"
+" " Bundle 'garbas/vim-snipmate'
+" Bundle 'honza/vim-snippets'
+" Bundle 'vim-scripts/tlib'
+" Bundle 'scrooloose/snipmate-snippets'
+
+" Multiple cursors, similar to Sublime
+Bundle 'terryma/vim-multiple-cursors'
+
+" Delete all but the current buffer
+Bundle 'duff/vim-bufonly'
+
+" HTML magic completion
+Bundle 'mattn/emmet-vim'
+
+" Beautiful status
+Bundle 'bling/vim-airline'
